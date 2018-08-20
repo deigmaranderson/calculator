@@ -15,14 +15,14 @@
     "jwt",
     "authentication"
   ],
-  "author": "Luis Filipe <lionphilips@gmail.com>",
+  "author": "",
   "license": "Apache-2.0",
   "dependencies": {
     "@sendgrid/mail": "^6.2.1",
     "body-parser": "^1.18.2",
     "chai": "^4.1.2",
     "debug": "^3.1.0",
-    "express": "^4.16.2",
+    "express": "^4.16.3",
     "guid": "0.0.12",
     "http": "0.0.0",
     "jsonwebtoken": "^7.4.0",
