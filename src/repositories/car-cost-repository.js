@@ -19,28 +19,12 @@ exports.create = async (data) => {
 }
 
 exports.edit = async (data) => {
-    let carCost = new CarCost(data);
-    await carCost.findByIdAndUpdate(
-        data.id,
+    await CarCost.findOneAndUpdate(
+        data._id,
         data,
-        (err, todo) => {
-            // Handle any possible database errors
-            if (err) return res.status(500).send(err);
-            return res.send(todo);
-        });
+        {new: true});
 }
 
 exports.delete = async (data) => {
-    let carCost = new CarCost(data);
-    carCost.findByIdAndRemove(data.id, (err, todo) => {
-        // As always, handle any potential errors:
-        if (err) return res.status(500).send(err);
-        // We'll create a simple object to send back with a message and the id of the document that was removed
-        // You can really do this however you want, though.
-        const response = {
-            message: "CarCost successfully deleted",
-            id: carCost._id
-        };
-        return res.status(200).send(response);
-    });
+    await CarCost.findByIdAndRemove(data._id);
 }

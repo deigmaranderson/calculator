@@ -1,6 +1,6 @@
 'use strict'
 
-const repository = require('../repositories/car-cost-repository');
+const repository = require('../repositories/city-params-repository');
 // const validationContract = require('../validators/validator');
 const md5 = require('md5');
 
@@ -93,12 +93,7 @@ exports.getById = async (req, res, next) => {
  */
 exports.post = async (req, res, next) => {
     try {
-        await repository.create({
-            name: req.body.name,
-            email: req.body.email,
-            password: md5(req.body.password + global.SALT_KEY),
-            roles: ["user"]
-        });
+        await repository.create(req.body);
 
         res.status(200).send({ message: 'User created' });
     } catch (e) {
@@ -109,7 +104,8 @@ exports.post = async (req, res, next) => {
 exports.put = async (req, res, next) => {
     try {
         await repository.update({
-            id: req.id
+            id: req.body.id,
+            description: req.body.description
         });
 
         res.status(200).send({ message: 'User created' });

@@ -17,12 +17,19 @@ const CarCost = require('./models/car-economy/car-cost');
 const CalculatorParams = require('./models/car-economy/calculator-params');
 const CityParams = require('./models/car-economy/city-params');
 const POPCost = require('./models/car-economy/pop-cost');
-const Field = require('./models/field');
+const FieldFuel = require('./models/field-fuel');
+const FieldCity = require('./models/field-city');
 
 //load routes
 const indexRoute = require('./routes/index-route');
 const userRoute = require('./routes/user-route');
 const carEconomyRoute = require('./routes/calc-car-economy-route');
+const carCostRoute = require('./routes/car-cost-route');
+const fieldFuelRoute = require('./routes/field-fuel-route');
+const fieldCityRoute = require('./routes/field-city-route');
+const popCostRoute = require('./routes/pop-cost-route');
+const cityParamsRoute = require('./routes/city-params-route');
+
 app.use(bodyParser.json({ limit: '5mb' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -39,5 +46,10 @@ if(config.MODE == 'development') {
 app.use('/', indexRoute);
 app.use('/users', userRoute);
 app.use('/car-economy', carEconomyRoute);
+app.use('/field-fuel', fieldFuelRoute);
+app.use('/field-city', fieldCityRoute);
+app.use('/car-cost', carCostRoute);
+app.use('/pop-cost', popCostRoute);
+app.use('/city-params', cityParamsRoute);
 
 module.exports = app;

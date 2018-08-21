@@ -39,6 +39,10 @@ const schema = new Schema({
     dynamicPrice: {
         type: Number,
         required: true,
+    },
+    cityId: {
+        type: String,
+        required: true,
     }
 });
 

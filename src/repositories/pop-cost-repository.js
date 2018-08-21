@@ -8,12 +8,23 @@ exports.get = async() => {
     return res;
 }
 
-exports.getById = async(id) => {
-    let res = await POPCost.findById(id, 'name email active roles created');
+exports.getById = async(data) => {
+    let res = await POPCost.findById(data, 'name email active roles created');
     return res;
 }
 
 exports.create = async(data) => {
     let popCost = new POPCost(data);
     await popCost.save();
+}
+
+exports.edit = async (data) => {
+    await POPCost.findOneAndUpdate(
+        data._id,
+        data,
+        {new: true});
+}
+
+exports.delete = async (data) => {
+    await POPCost.findByIdAndRemove(data._id);
 }
