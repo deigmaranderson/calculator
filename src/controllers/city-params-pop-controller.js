@@ -1,6 +1,6 @@
 'use strict'
 
-const repository = require('../repositories/pop-cost-repository');
+const repository = require('../repositories/city-params-pop-repository');
 // const validationContract = require('../validators/validator');
 const md5 = require('md5');
 
@@ -23,7 +23,6 @@ exports.getById = async (req, res, next) => {
 }
 
 exports.post = async (req, res, next) => {
-    console.log(req.body);
     try {
         await repository.create(req.body);
 
