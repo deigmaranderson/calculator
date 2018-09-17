@@ -4,7 +4,7 @@ const controller = require('../controllers/pop-cost-controller');
 
 router.get('/', controller.get);
 router.post('/', controller.post);
-router.delete('/:id', controller.delete);
-router.put('/:id', controller.put);
+router.delete('/', controller.delete);
+router.put('/', controller.put);
 
 module.exports = router;
